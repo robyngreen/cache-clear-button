@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/robyngreen/cache-clear-button/issues"
   },
-  "homepage": "https://github.com/robyngreen/cache-clear-button#readme"
+  "homepage": "https://github.com/robyngreen/cache-clear-button#readme",
+  "dependencies": {
+    "johnny-five": "^0.11.6",
+    "raspi-io": "^8.0.1"
+  }
 }
