@@ -10,7 +10,7 @@ const board = new shortCircuit.Board({
 });
 
 board.on('ready', () => {
-  let button = shortCircuit.Button('18');
+  let button = shortCircuit.Button('P1-12');
 
   board.repl.inject({
     button: button
