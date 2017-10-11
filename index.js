@@ -4,18 +4,13 @@
 const Raspi = require('raspi-io');
 const shortCircuit = require('johnny-five');
 const sys = require('sys');
-const exec = require('child_process').exec;
+const exec = require('child_process');
 
 
 // Delcare a new object to reference our breadboard.
 const board = new shortCircuit.Board({
   io: new Raspi()
 });
-
-function puts(error, stdout, stderr) {
-  sys.puts(stdout);
-  console.log(stdout);
-}
 
 board.on('ready', () => {
   let button = shortCircuit.Button('2');
@@ -26,7 +21,16 @@ board.on('ready', () => {
 
   button.on('down', function() {
     console.log('down');
-    exec('drush status', puts);
+    exec('drush status', (err, stdout, stderr) => {
+      if (err) {
+        // node couldn't execute the command
+        return;
+      }
+
+      // the *entire* stdout and stderr (buffered)
+      console.log(`${stdout}`);
+      console.log(`${stderr}`);
+    });
   });
 
   button.on('hold', function() {
