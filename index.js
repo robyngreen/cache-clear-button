@@ -26,7 +26,7 @@ board.on('ready', () => {
 
   button.on('down', function() {
     console.log('down');
-    exec("ls -la", puts);
+    exec('drush status', puts);
   });
 
   button.on('hold', function() {
