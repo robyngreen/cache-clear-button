@@ -18,7 +18,7 @@ function puts(error, stdout, stderr) {
 }
 
 board.on('ready', () => {
-  let button = shortCircuit.Button('P1-12');
+  let button = shortCircuit.Button('2');
 
   board.repl.inject({
     button: button
